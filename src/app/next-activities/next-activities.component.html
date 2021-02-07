@@ -1,0 +1,50 @@
+<div id="header">
+  <div id="title">
+    {{ title }}
+  </div>
+  <div id = "autoRefresh">
+    <label>
+      <input 
+        type="checkbox" 
+        [(ngModel)]="autoRefreshActive"
+        name="autoRefreshActive" 
+        (click)='toggleAutoRefresh()'
+        [checked]="autoRefreshActive"
+        >
+      Auto Refresh
+    </label>
+  </div>
+  <div id = "refresh">
+    <button class="btn btn-sm btn-success" (click)="refresh()" >Refresh now </button>
+  </div>
+</div>
+<div>
+  <table *ngIf="nextActivities$ | async as nextActivities else noData">
+    <tr>
+      <th>Equipment</th>
+      <th>Last Activity</th>
+      <th>Start Time</th>
+      <th>Status</th>
+      <th>Next Activity Estimate</th>
+      <th>Activity CD Tracker</th>
+      <!-- <th>Color</th> -->
+    </tr>
+    <tr *ngFor="let nextActvity of nextActivities; index as i ; even as isEven; odd as isOdd"
+                  [ngClass] = "{odd:isOdd, even:isEven}">
+        <td> {{nextActvity.equipment}}</td> 
+        <td> {{nextActvity.lastActivityName}}</td>
+        <td> {{nextActvity.lastActivityStartTime| date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td> {{nextActvity.lastActivityStatus}}</td>
+        <td> {{nextActvity.nextActivityEstimate| date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td [class.greenbkgrnd]="nextActvity.color==1"
+            [class.redbkgrnd]="nextActvity.color==2"
+            [class.yellowbkgrnd]="nextActvity.color==3"
+        > {{nextActvity.activityCDTracker}}</td>
+        <!-- <td> {{nextActvity.color}}</td> -->
+    </tr>
+  </table>
+  <ng-template #noData>No Data Available</ng-template>
+</div>
+
+<!-- <input [(ngModel)] = "puIids" (keyup.enter)="onKeyUp(puIds)" /> -->
+

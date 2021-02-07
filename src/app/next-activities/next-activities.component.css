@@ -1,0 +1,50 @@
+
+table,th,td {
+  border: 1px solid black;
+  font-size: small;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+th {
+    background-color: #00ffff;
+}
+
+#header {
+  display: flex;
+}
+#title {
+  font-size: large;
+  font-weight: bold;
+}
+#autoRefresh {
+  margin-left: 2rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  align-self: flex-end;
+}
+#refresh.btn {
+  margin-bottom: 2 rem;
+  align-self: flex-end;
+
+}
+.greenbkgrnd{
+  background-color: green;
+  color:white;
+}
+.yellowbkgrnd{
+  background-color:yellow;
+  color:black;
+}
+.redbkgrnd{
+  background-color: red;
+  color: white;
+}
+.whitebkgrnd{
+  background-color: white;
+  color: black;
+}
+
+/* .even {
+    background-color: aqua;
+} */
