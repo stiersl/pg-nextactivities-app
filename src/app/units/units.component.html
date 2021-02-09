@@ -1,0 +1,23 @@
+<div id="header">
+  <div id="title">
+    {{ title }}
+  </div>
+  <div id = "refresh">
+    <button class="btn btn-sm btn-success" (click)="refresh()" >Refresh now </button>
+  </div>
+</div>
+<div>
+  <table *ngIf="units$ | async as units else noData">
+    <tr>
+      <th>UnitId</th>
+      <th>Equipment</th>
+    </tr>
+    <tr *ngFor="let unit of units;">
+        <td> {{unit.unitId}}</td> 
+        <td> {{unit.equipment}}</td> 
+    </tr>
+  </table>
+  <ng-template #noData>No Units Found</ng-template>
+</div>
+
+

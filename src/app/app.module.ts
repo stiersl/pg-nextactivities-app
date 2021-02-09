@@ -7,11 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { NextActivitiesService } from './next-activities.service';
 import { AppComponent } from './app.component';
 import { NextActivitiesComponent } from './next-activities/next-activities.component';
+import { UnitsComponent } from './units/units.component';
+import { UnitsService } from './units.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NextActivitiesComponent
+    NextActivitiesComponent,
+    UnitsComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { NextActivitiesComponent } from './next-activities/next-activities.compo
     // import HttpClientModule after BrowserModule.
     HttpClientModule
   ],
-  providers: [NextActivitiesService],
+  providers: [NextActivitiesService,
+              UnitsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
